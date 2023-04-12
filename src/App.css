@@ -7,6 +7,11 @@
   pointer-events: none;
 }
 
+/* body{
+  background-image: url("https://th.bing.com/th/id/OIP.jsnZA56R4gpcABh5KmrkAwHaEK?pid=ImgDet&rs=1");
+  background-repeat: 'no-repeat';
+} */
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
