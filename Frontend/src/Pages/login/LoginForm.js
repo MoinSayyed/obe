@@ -25,7 +25,7 @@ function LoginForm() {
         axios.post('http://localhost:8081/login', Values)
         .then(res => {
             if(res.data.Status === "Success"){
-                navigate('/adminControl')
+                navigate('/adminControl') // if the status of login is "Success" then i want to navigate to this admincontrol page
             }else{
                 alert(res.data.Message)
             }
