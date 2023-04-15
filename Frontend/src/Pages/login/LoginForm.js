@@ -3,14 +3,23 @@ import './LoginForm.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
+// for some unknown reasons axios is not working
+// AxiosError {message: 'Network Error', name: 'AxiosError', code: 'ERR_NETWORK', config: {…}, request: XMLHttpRequest, …}
+
 function LoginForm() {
+
+// created a state having two variables initially empty
     const [Values, setValues] = useState({
         email : '',
-        password : ''
+        password : '',
+        authority : 'user' // to implement different levels of access initially state is set to user and can be changed otherwise
     })
 
+// using useNavigate() hook from react-router-dom
     const navigate = useNavigate()
 
+
+// on submit of the form we call this function to communicate with the backend to verify the Email & Password fields
     function handleSubmit(event){
         event.preventDefault();
         axios.post('http://localhost:8081/login', Values)
@@ -36,6 +45,7 @@ function LoginForm() {
             <div className="main">
                 <div className="col-md-6 col-sm-12">
                     <div className="login-form">
+                        {/* for some weird reason the handleSubmit function doesn't work! Need to work on that*/}
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <label>Email</label>
