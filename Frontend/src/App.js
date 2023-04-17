@@ -9,7 +9,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path = "/login" element = {<LoginForm/>}></Route>
+          <Route path = "/signup" element = {<Singup/>}></Route>
           <Route path = "/adminControl" element = {<AdminControl/>}></Route>
+
         </Routes>
       </BrowserRouter>
   );
