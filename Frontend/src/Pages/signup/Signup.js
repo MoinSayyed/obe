@@ -3,7 +3,6 @@ import './LoginForm.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
-
 function LoginForm() {
 
 // created a state having two variables initially empty
@@ -11,7 +10,7 @@ const [email, setemail] = useState('')
 const [password, setpassword] = useState('')
 
 // using useNavigate() hook from react-router-dom
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
 
 // on submit of the form we call this function to communicate with the backend to verify the Email & Password fields
@@ -19,6 +18,18 @@ const [password, setpassword] = useState('')
         event.preventDefault();
         try {
             await axios.post("http://localhost:3000/signup",{email, password})
+            .then(res => {
+                if(res.data == "Exist"){
+                    alert("User already exists")
+                }
+                else if(res.data == "Not Exist"){
+                    navigate("/adminControl")
+                } 
+            })
+            .catch(event => {
+                alert("wrong data"),
+                console.log(e)
+            })
 
         }
         catch(event){

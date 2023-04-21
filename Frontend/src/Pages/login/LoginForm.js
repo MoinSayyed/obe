@@ -11,14 +11,26 @@ const [email, setemail] = useState('')
 const [password, setpassword] = useState('')
 
 // using useNavigate() hook from react-router-dom
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
 
 // on submit of the form we call this function to communicate with the backend to verify the Email & Password fields
     async function handleSubmit(event){
         event.preventDefault();
         try {
-            await axios.post("http://localhost:3000/login",{email, password})
+            await axios.post("http://localhost:3000/",{email, password})
+            .then(res => {
+                if(res.data == "Exist"){
+                    navigate("/adminControl")
+                }
+                else if(res.data == "Not Exist"){
+                    alert("User not signed up")
+                } 
+            })
+            .catch(event => {
+                alert("wrong data"),
+                console.log(e)
+            })
 
         }
         catch(event){

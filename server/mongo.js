@@ -1,7 +1,6 @@
 const mongoose = require("mongoose")
-mongoose.connect("mongodb://localhost:27017/OBE ")
-
-
+const db = "mongodb+srv://moinfmpune:Moin@4902@cluster0.zoh3lpq.mongodb.net/LoginData?retryWrites=true&w=majority"
+mongoose.connect(db)
 
 
 const newSchema = new mongoose.Schema({
@@ -14,3 +13,7 @@ const newSchema = new mongoose.Schema({
         required : true
     }
 })
+
+const collection = mongoose.model("collection", newSchema)
+
+module.exports = collection 
