@@ -63,7 +63,7 @@ const [password, setpassword] = useState('')
                             </div>
                             <div className="my-2">
                             <button type="submit" onClick={handleSubmit} className="btn btn-success mx-1">Submit</button>
-                            <button type="submit" className="btn btn-primary" link to = '/signup'>Sign up</button>
+                            <button type="submit" onClick = {() => {navigate("/signup")}}className="btn btn-primary" link to = '/signup'>Sign up</button>
                             </div>
                         </form>
                     </div>
